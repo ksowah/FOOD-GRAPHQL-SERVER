@@ -1,5 +1,5 @@
-const queryResolvers = require('./recipe/queries');
-const mutationResolvers = require('./recipe/mutations');
+const queryResolvers = require('./queries');
+const mutationResolvers = require('./mutations');
 
 module.exports = {
     Query: queryResolvers,

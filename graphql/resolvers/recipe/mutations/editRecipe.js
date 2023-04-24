@@ -1,6 +1,10 @@
-const Recipe = require("../../../../../models/Recipe");
+const Authenticate = require("../../../../middleware/auth");
+const Recipe = require("../../../../models/Recipe");
 
-const editRecipe = async (_, { ID, recipeInput: { name, description } }) => {
+const editRecipe = async (_, { ID, recipeInput: { name, description } }, context) => {
+
+    Authenticate(context);
+
     try {
         const recipe = await Recipe.findById(ID);
         if (recipe) {

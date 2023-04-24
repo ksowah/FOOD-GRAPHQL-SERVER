@@ -1,6 +1,10 @@
-const Recipe = require('../../../../../models/Recipe');
+const Authenticate = require('../../../../middleware/auth');
+const Recipe = require('../../../../models/Recipe');
 
-const deleteRecipe = async (_, { ID }) => {
+const deleteRecipe = async (_, { ID }, context) => {
+
+    Authenticate(context);
+
     try {
         const recipe = await Recipe.findById(ID);
         if (recipe) {
